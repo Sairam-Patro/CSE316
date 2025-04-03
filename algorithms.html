@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>CSE-316</title>
+</head>
+
+<body>
+    <section class="sub-header">
+        <nav>
+            <a href="index.html">CSE-316</a>
+            <div class="nav-links" id="navLinks">
+                
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="algorithms.html">ALGORITHMS</a></li>
+                    <li><a href="./backend/ganttcharts.html">SIMULATOR</a></li>
+
+                </ul>
+            </div>
+        </nav>
+        <h1>Scheduling Algorithms</h1>
+    </section>
+    <section class="container_docs" >
+        <h1>CPU Scheduling Algorithms</h1>
+        <p>CPU scheduling is the process of deciding which task should use the CPU while others wait. Since multiple tasks may be ready at the same time, the system needs a way to manage them efficiently. Scheduling ensures that the CPU is always working and that tasks are completed in a fair and timely manner. Some methods allow a task to finish before moving to the next one, while others may pause a task to let another one run. The goal is to reduce waiting time, improve response speed, and make the system more efficient based on workload needs.</p>
+    </section>
+
+    <section class="container_docs special">
+        <h1> CPU scheduling Terminologies</h1>
+        <li><strong>Arrival Time:</strong> when a process enters in a ready state</li>
+        <li><strong>Burst Time/Execution Time:</strong> is the total time a process requires for execution on the CPU without interruption.</li>
+        <li><strong>Completion Time:</strong> when process complete and exit from a system</li>
+        <li><strong>Turnaround Time (TAT):</strong> is the total time taken for a process to complete execution, from submission to completion.</li>
+        <li><strong>Response Time (RT):</strong> is the time from when a process is submitted until it starts execution for the first time.</li>
+        <li><strong>Process:</strong> A process is an executing program with its own memory, resources, and state.</li>
+        </p>
+    </section>
+
+    <section class="container_docs">
+        <h1>Types of CPU scheduling Algorithm</h1>
+        <p>There are mainly five types of process scheduling algorithm</p>
+
+
+        <div style="padding-top: 30px;">
+        <li><strong>First Come First Serve (FCFS)</strong><br>
+        Concept of FCFS Scheduling<br>
+        First-Come, First-Served (FCFS) is the simplest CPU scheduling algorithm. In this method, the process that arrives first in the ready queue gets executed first.
+        It follows a queue-based structure, where processes are scheduled in the exact order of their arrival. Once a process starts execution, it runs until completion without being interrupted.
+        <br><br>
+        Advantages of FCFS:<br>
+        ✅ Easy to implement using a queue.<br>
+        ✅ Fair scheduling—processes are executed in the order they arrive.<br>
+        ✅ Minimal overhead—no context switching overhead as processes are not interrupted.<br>
+        <br>
+        Disadvantages of FCFS:<br>
+        ❌ Convoy effect - If a long process arrives first, it delays all others.<br>
+        ❌ Not ideal for time-sharing systems since it lacks preemption.<br>
+        ❌ Higher waiting time for shorter processes, leading to inefficiency.<br>
+        </li>
+        </div>
+        <button class="btn_1"><a href="./backend/ganttcharts.html">GO TO SIMULATOR</a></button>       
+        <br>
+
+        <div style="padding-top: 100px;">
+        <li><strong>Shortest-Job-First (SJF) Scheduling</strong><br>
+        Concept of SJF Scheduling<br>
+        Shortest-Job-First (SJF) is a CPU scheduling algorithm where the process with the shortest execution time is selected first. 
+        This method minimizes waiting time and improves overall efficiency. It can be either preemptive or non-preemptive, depending on 
+        whether a new process with a shorter burst time can interrupt an ongoing process.<br>
+        <br>
+        Advantages of SJF:<br>
+        ✅ Reduces average waiting time, improving overall system performance.<br>
+        ✅ Efficient for batch processing, as shorter processes get completed quickly.<br>
+        ✅ Minimizes turnaround time by prioritizing shorter jobs.<br>
+        <br>
+        Disadvantages of SJF:<br>
+        ❌ Requires knowledge of burst time beforehand, which may not always be available.<br>
+        ❌ Starvation - Longer processes may be delayed indefinitely if short processes keep arriving.<br>
+        ❌ Difficult to implement in real-time systems due to unpredictable job lengths.<br>
+        </li>
+        <button class="btn_1"><a href="./backend/ganttcharts.html">GO TO SIMULATOR</a></button>
+        <br>
+        </div>
+
+        <div style="padding-top: 100px;">
+        <li><strong>Shortest Remaining Time (SRT) Scheduling</strong><br>
+        Concept of SRT Scheduling<br>
+        Shortest Remaining Time (SRT) is the preemptive version of Shortest Job First (SJF). At any given time, the process with the smallest remaining execution time is selected. 
+        If a new process arrives with a shorter burst time than the currently running process, it preempts the execution and takes over.<br>
+        <br>
+        Advantages of SRT:<br>
+        ✅ Provides better turnaround time compared to non-preemptive SJF.<br>
+        ✅ More responsive for shorter processes in a dynamic system.<br>
+        ✅ Reduces average waiting time for processes.<br>
+        <br>
+        Disadvantages of SRT:<br>
+        ❌ Starvation - Long processes may face indefinite delays due to frequent interruptions.<br>
+        ❌ More complex to implement as the scheduler must continuously monitor burst times.<br>
+        ❌ Increased CPU overhead due to frequent preemptions.<br>
+        </li>
+        <button class="btn_1"><a href="./backend/ganttcharts.html">GO TO SIMULATOR</a></button>
+        <br>
+        </div>
+
+        <div style="padding-top: 100px;">
+        <li><strong>Priority Scheduling</strong><br>
+        Concept of Priority Scheduling<br>
+        Priority Scheduling assigns a priority to each process, and the CPU is allocated to the process with the highest priority. If multiple processes have the same priority, they are scheduled in FCFS order. 
+        It can be either preemptive or non-preemptive.<br>
+        <br>
+        Advantages of Priority Scheduling:<br>
+        ✅ Ensures that critical tasks with high priority get CPU time quickly.<br>
+        ✅ More control over process execution based on priority levels.<br>
+        ✅ Can be optimized for different use cases like real-time systems.<br>
+        <br>
+        Disadvantages of Priority Scheduling:<br>
+        ❌ Starvation - Lower priority processes may never get executed if high-priority processes keep arriving.<br>
+        ❌ Requires an external mechanism like aging to prevent indefinite blocking of lower-priority processes.<br>
+        ❌ Complexity increases with dynamic priority adjustments.<br>
+        </li>
+        <button class="btn_1"><a href="./backend/ganttcharts.html">GO TO SIMULATOR</a></button>
+        <br>
+        </div>
+
+        <div style="padding-top: 100px;">
+        <li><strong>Round Robin (RR) Scheduling</strong><br>
+        Concept of Round Robin Scheduling<br>
+        Round Robin (RR) is a preemptive CPU scheduling algorithm where each process is assigned a fixed time slice (quantum). 
+        Processes are executed in a cyclic order, ensuring fairness. If a process does not complete within its quantum, it is moved to the end of the queue.<br>
+        <br>
+        Advantages of Round Robin:<br>
+        ✅ Provides a fair and equal share of CPU time to all processes.<br>
+        ✅ Reduces starvation since all processes get a chance to execute.<br>
+        ✅ Well-suited for time-sharing and interactive systems.<br>
+        <br>
+        Disadvantages of Round Robin:<br>
+        ❌ Higher average turnaround time compared to SJF or Priority Scheduling.<br>
+        ❌ Performance depends on the time quantum—too small increases context switching, too large behaves like FCFS.<br>
+        ❌ Frequent context switching leads to increased CPU overhead.<br>
+        </li>            
+        <br>
+        <button class="btn_1"><a href="./backend/ganttcharts.html">GO TO SIMULATOR</a></button>
+        </p>
+        </div>
+    </section>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+  AOS.init({
+    offset: 200, 
+    duration: 0
+  });
+</script>
+</body>
+
+</html>
